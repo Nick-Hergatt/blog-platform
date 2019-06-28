@@ -18,7 +18,7 @@ public class TagTest {
 		
 		@Test
 		public void categorySHouldHaveName() {
-			String underTestName = underTest.getTagName();
+			String underTestName = underTest.getName();
 			assertThat(underTestName, is("Country"));
 		}
 		
