@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import masteryproject.intergrationtest.blogplatform.CategoryRepository;
-
 
 @Controller
 @RequestMapping("/categories")
@@ -23,23 +21,24 @@ public class CategoryController {
 
 	@RequestMapping("/")
 	public String findAll(Model model) {
-		model.addAttribute("categories", categoryRepo.findAll());
-		return "categories";
+		model.addAttribute("categoriesAttribute", categoryRepo.findAll());
+		return "categoriesTemplate";
 
 	}
 
-	@RequestMapping("/{name}")
-	public String findAllPosts(@PathVariable String name, Model model) {
-		model.addAttribute("category", categoryRepo.findByName(name));
-		return "category";
+	@RequestMapping("/{id}")
+	public String getCategory(@PathVariable Long id, Model model) {
+		model.addAttribute("categoryAttribute", categoryRepo.findById(id));
+		return "categoryTemplate";
 	}
 	
-	@PostMapping("/add")
-	public String addPost(String title, String categoryName, String content) {
-		Category category = categoryRepo.findByName(categoryName);
-		Post newPost = new Post(title, "", category , content);
-		postRepo.save(newPost);
-		
-		return "redirect:/categories/" + categoryName ;
+	@PostMapping({"/cateogires-add","/categoreies-add/"})
+	public String AddCategory(String name) {
+		Category categoryToAdd = new Category(name);
+		if (categoryRepo.findByName(categoryToAdd.getName()) == null) {
+			categoryRepo.save(categoryToAdd);
+		}
+		return "redirect:/categories";
 	}
+	
 }
