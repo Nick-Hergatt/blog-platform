@@ -13,22 +13,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping({"/author", "/author/"})
 public class AuthorController {
 	
-	@Autowired
-	private PostRepository postRepo;
 	
 	@Resource
 	private AuthorRepository authorRepo;
 	
 	@RequestMapping({"/", ""})
 	public String findAll(Model model) {
-		model.addAttribute("reviewTagsAttribute", authorRepo.findAll());
-		return "reviewTagsTemplate";
+		model.addAttribute("authorsAttribute", authorRepo.findAll());
+		return "authorsTemplate";
 	}
 	
 	@RequestMapping({"/{id}","/{id}/"})
-	public String getTag(@PathVariable("id")Long id, Model model) {
-		model.addAttribute("reviewTagAttribute", authorRepo.findById(id).get());
-		return "reviewTagTemplate";
+	public String getAuthor(@PathVariable("id")Long id, Model model) {
+		model.addAttribute("authorAttribute", authorRepo.findById(id).get());
+		return "authorTemplate";
 	}
 	
 	@PostMapping({"add-author", "add-author/"})

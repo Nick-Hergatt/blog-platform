@@ -9,33 +9,33 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping({"/Tags", "/Tags/"})
+@RequestMapping({"/tags", "/tags/"})
 public class TagController {
 	
 	@Autowired
-	private TagRepository reviewTagRepo;
+	private TagRepository tagRepo;
 	
 	@Resource
-	private PostRepository reviewRepo;
+	private PostRepository postRepo;
 	
 	@RequestMapping({"/", ""})
 	public String findAll(Model model) {
-		model.addAttribute("reviewTagsAttribute", reviewTagRepo.findAll());
-		return "reviewTagsTemplate";
+		model.addAttribute("tagsAttribute", tagRepo.findAll());
+		return "tagsTemplate";
 	}
 	
 	@RequestMapping({"/{id}","/{id}/"})
 	public String getTag(@PathVariable("id")Long id, Model model) {
-		model.addAttribute("reviewTagAttribute", reviewTagRepo.findById(id).get());
-		return "reviewTagTemplate";
+		model.addAttribute("tagAttribute", tagRepo.findById(id).get());
+		return "tagTemplate";
 	}
 	
-	@PostMapping({"add-reviewTag", "add-reviewTag/"})
-	public String addReviewTag(String name) {
-		Tag reviewTagToAdd = new Tag(name);
-		if (reviewTagRepo.findByName(reviewTagToAdd.getName()) == null) {
-	            reviewTagRepo.save(reviewTagToAdd);
+	@PostMapping({"tags-add", "tags-add/"})
+	public String addTag(String name) {
+		Tag tagToAdd = new Tag(name);
+		if (tagRepo.findByName(tagToAdd.getName()) == null) {
+	            tagRepo.save(tagToAdd);
 	        }	
-		return "redirect:/all-reviewTags";
+		return "redirect:/tags";
 	}
 }

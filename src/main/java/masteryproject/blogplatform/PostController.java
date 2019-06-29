@@ -23,18 +23,18 @@ public class PostController {
 
 	@RequestMapping({ "", "/" })
 	public String findAll(Model model) {
-		model.addAttribute("reviewsAttribute", postRepo.findAll());
+		model.addAttribute("postsAttribute", postRepo.findAll());
 		return "reviewsTemplate";
 	}
 
 	@RequestMapping({ "/{id}", "/{id}/" })
-	public String getReview(@PathVariable("id") Long id, Model model) {
-		model.addAttribute("reviewAttribute", postRepo.findById(id).get());
+	public String getPost(@PathVariable("id") Long id, Model model) {
+		model.addAttribute("postAttribute", postRepo.findById(id).get());
 		return "reviewTemplate";
 	}
 
 	@PostMapping({ "/add-post", "/add-post/" })
-	public String addReview(String title, String content, String category, String tag) {
+	public String addPost(String title, String content, String category, String tag) {
 
 		Post postToAdd = new Post(title, content);
 		postRepo.save(postToAdd);
