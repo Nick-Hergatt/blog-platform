@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Fallr Blog</title>
     <link rel="stylesheet" href="" />
 </head>
@@ -12,7 +12,7 @@
 <body>
     <div class="wrapper">
         <header class="main-header">
-            <h1 class="main-header__title">Fallr Tags</h1>
+            <h1 class="main-header__title">Fallr Author</h1>
             <nav class="nav nav-margin__right">
                 <ul class="nav-list">
                     <li class="nav-list__item"><a href="/all-posts/">Posts</a></li>
@@ -23,16 +23,11 @@
             </nav>
         </header>
         <div class="container">
-            <form class="post-form" action="/all-postTags/add-postTag" method="POST">
-                <ul class="post-form__list">
-                    <label class="post-form__field">Tag:
-                        <input type="text" name="name" placeholder="Enter Tag here" required /></label>
-                </ul>
-                <button class="post-form__button" type="submit">Submit</button>
-            </form>
-            <h2 th:each="postTag: ${postTagsAttribute}">
-                <a th:text="${postTag.name}" th:href="|/all-postTags/${postTag.id}|">Category name</a>
-            </h2>
+            <ul th:each="post: ${authorAttribute.posts}">List of <span th:text="${authorAttribute.name}">Author</span>
+                Posts
+                <li><a th:text="${post.title}" th:href="|/all-posts/${post.id}|">Post</a></li>
+            </ul>
+            <a href="/all-authors/">Back to Authors</a>
         </div>
         <footer class="main-footer">
             <small class="main-footer__copy">&copy;2019</small>
@@ -40,4 +35,4 @@
     </div>
 </body>
 
-</html
+</html>

@@ -2,9 +2,9 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Fallr Blog</title>
     <link rel="stylesheet" href="" />
 </head>
@@ -12,7 +12,7 @@
 <body>
     <div class="wrapper">
         <header class="main-header">
-            <h1 class="main-header__title">Fallr Tags</h1>
+            <h1 class="main-header__title">Fallr Authors</h1>
             <nav class="nav nav-margin__right">
                 <ul class="nav-list">
                     <li class="nav-list__item"><a href="/all-posts/">Posts</a></li>
@@ -23,15 +23,15 @@
             </nav>
         </header>
         <div class="container">
-            <form class="post-form" action="/all-postTags/add-postTag" method="POST">
+            <form class="post-form" action="/all-authors/add-author" method="POST">
                 <ul class="post-form__list">
-                    <label class="post-form__field">Tag:
-                        <input type="text" name="name" placeholder="Enter Tag here" required /></label>
+                    <label class="post-form__field">Author:
+                        <input type="text" name="name" placeholder="Enter author here" required /></label>
                 </ul>
                 <button class="post-form__button" type="submit">Submit</button>
             </form>
-            <h2 th:each="postTag: ${postTagsAttribute}">
-                <a th:text="${postTag.name}" th:href="|/all-postTags/${postTag.id}|">Category name</a>
+            <h2 th:each="author: ${authorsAttribute}">
+                <a th:text="${author.name}" th:href="|/all-authors/${author.id}|">Author name</a>
             </h2>
         </div>
         <footer class="main-footer">
@@ -40,4 +40,4 @@
     </div>
 </body>
 
-</html
+</html>
