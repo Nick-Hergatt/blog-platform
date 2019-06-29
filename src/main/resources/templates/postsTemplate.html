@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Fallr Blog</title>
+    <link rel="stylesheet" href="" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="main-header">
+            <h1 class="main-header__title">Fallr Posts</h1>
+            <nav class="nav nav-margin__right">
+                <ul class="nav-list">
+                    <li class="nav-list__item"><a href="/all-posts/">Posts</a></li>
+                    <li class="nav-list__item"><a href="/all-categories/">Categories</a></li>
+                    <li class="nav-list__item"><a href="/all-postTags/">Tags</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="container">
+            <form class="post-form" action="/all-posts/add-post" method="POST">
+                <ul class="post-form__list">
+                    <label class="post-form__field">Title:
+                        <input type="text" required name="title" placeholder="Enter Title here" /></label>
+                    <label class="post-form__field">Category:
+                        <input type="text" name="category" placeholder="Enter Category here" /></label>
+                    <label class="post-form__field">Tag:
+                        <input type="text" name="postTag" placeholder="Enter Tag here" /></label>
+                    <br>
+                    <label class="post-form__field post-form__content">Content:
+                        <textarea type="text" required maxlength="1000" rows="3" cols="120" name="content"
+                            placeholder="Enter Content here"></textarea></label>
+                    <br>
+                </ul>
+                <button class="post-form__button" type="submit">Submit</button>
+            </form>
+            <h2 th:each="post: ${postsAttribute}">
+                <a th:text="${post.title}" th:href="|/all-posts/${post.id}|">post Title</a>
+            </h2>
+        </div>
+        <footer class="main-footer">
+            <small class="main-footer__copy">&copy;2019</small>
+        </footer>
+    </div>
+</body>
+
+</html>
