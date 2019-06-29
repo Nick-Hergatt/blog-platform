@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Post {
@@ -19,6 +20,12 @@ public class Post {
 
 	@ManyToMany
 	private List<Tag> reviewTags;
+	
+	@ManyToOne
+	private Category category;
+	
+	@ManyToOne
+	private Author author;
 	
 	LocalTime localDateTime = LocalTime.now();
 	private String title;
@@ -54,8 +61,16 @@ public class Post {
 		return content;
 	}
 
-	public void addReviewTag(Tag reviewTag) {
-		this.reviewTags.add(reviewTag);
+	public void addTag(Tag tag) {
+		this.reviewTags.add(tag);
+	}
+	
+	public void addCategory(Category category) {
+		this.category = category;
+	}
+	
+	public void addAuthor(Author author) {
+		this.author = author;
 	}
 	
 	public void addDateTime() {

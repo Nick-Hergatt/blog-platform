@@ -1,3 +1,5 @@
+package masteryproject.blogplatform;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
@@ -17,7 +19,7 @@ public class PostController {
 	private CategoryRepository categoryRepo;
 
 	@Resource
-	private TagRepository reviewTagRepo;
+	private TagRepository tagRepo;
 
 	@RequestMapping({ "", "/" })
 	public String findAll(Model model) {
@@ -47,11 +49,11 @@ public class PostController {
 		tag.replace(" ", "");
 		String[] reviewTags = tag.split(",");
 		for (String tagToAdd : reviewTags) {
-			Tag TagToAdd = new Tag(tagToAdd);
-			if (reviewTagRepo.findByName(tagToAdd.getName()) == null) {
-				reviewTagRepo.save(tagToAdd);
+			Tag addingTag = new Tag(tagToAdd);
+			if (tagRepo.findByName(addingTag.getName()) == null) {
+				tagRepo.save(addingTag);
 			}
-			postRepo.findById(postToAdd.getId()).get().addReviewTag(reviewTagRepo.findByName(tagToAdd.getName()));
+			postRepo.findById(postToAdd.getId()).get().addTag(tagRepo.findByName(addingTag.getName()));
 		}
 		
 		
