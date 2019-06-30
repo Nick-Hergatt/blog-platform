@@ -49,7 +49,7 @@ public class PostController {
 		tag.replace(" ", "");
 		String[] reviewTags = tag.split(",");
 		for (String tagToAdd : reviewTags) {
-			Tag addingTag = new Tag(tagToAdd);
+			PostTag addingTag = new PostTag(tagToAdd);
 			if (tagRepo.findByName(addingTag.getName()) == null) {
 				tagRepo.save(addingTag);
 			}

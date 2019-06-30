@@ -56,6 +56,6 @@ public class AuthorControllerTest {
 		Optional<Author> author1Optional = Optional.of(author1);
 		Mockito.when(authorRepo.findById(0L)).thenReturn(author1Optional);
 		underTest.getAuthor(0L, model);
-		verify(model).addAttribute("authorAttribute", author1Optional);
+		verify(model).addAttribute("authorAttribute", author1);
 	}
 }

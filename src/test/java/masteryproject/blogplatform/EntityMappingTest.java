@@ -47,11 +47,11 @@ public class EntityMappingTest {
 	
 	@Test
 	public void shouldSaveAndLoadTag() {
-		Tag tag = new Tag("fries");
-		entityManager.persist(tag);
+		PostTag postTag = new PostTag("fries");
+		entityManager.persist(postTag);
 		entityManager.flush();
 		entityManager.clear();
-		Tag foundTag = tagRepo.findById(tag.getId()).get();
+		PostTag foundTag = tagRepo.findById(postTag.getId()).get();
 		assertThat(foundTag.getName(), is("fries"));
 		
 	}

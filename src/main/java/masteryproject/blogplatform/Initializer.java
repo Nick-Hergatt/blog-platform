@@ -31,13 +31,13 @@ public class Initializer implements CommandLineRunner {
 		Category category3 = new Category("Literature");
 		categoryRepo.save(category3);
 
-		Tag tag1 = new Tag("Sci-fi");
+		PostTag tag1 = new PostTag("Sci-fi");
 		tagRepo.save(tag1);
 
-		Tag tag2 = new Tag("High Street");
+		PostTag tag2 = new PostTag("High Street");
 		tagRepo.save(tag2);
 		
-		Tag tag3 = new Tag("Java");
+		PostTag tag3 = new PostTag("Java");
 		tagRepo.save(tag3);
 		
 		Post post1 = new Post("OOP", "This is an intriguing article about OOP");

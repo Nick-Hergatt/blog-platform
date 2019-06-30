@@ -8,11 +8,11 @@ import org.junit.Test;
 
 public class TagTest {
 
-		Tag underTest;
+		PostTag underTest;
 
 		@Before
 		public void initialize() {
-			underTest = new Tag("Country");
+			underTest = new PostTag("Country");
 
 		}
 		

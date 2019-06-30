@@ -10,7 +10,7 @@ import javax.persistence.ManyToMany;
 
 
 @Entity
-public class Tag {
+public class PostTag {
 
 	private String name;
 
@@ -22,11 +22,11 @@ public class Tag {
 	private Collection<Post> reviews;
 
 	
-	public Tag() {
+	public PostTag() {
 
 	}
 
-	public Tag(String name) {
+	public PostTag(String name) {
 		this.name = name;
 		
 	}
