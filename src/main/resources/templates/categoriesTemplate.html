@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Fallr Blog</title>
-    <link rel="stylesheet" href="" />
+    <link href="/static/blog.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -31,7 +31,7 @@
                 <button class="post-form__button" type="submit">Submit</button>
             </form>
             <h2 th:each="category: ${categoriesAttribute}">
-                    <a th:text="${category.name}" th:href="|/categories/${category.id}|">Author name</a>
+                <a th:text="${category.name}" th:href="|/categories/${category.id}|">Author name</a>
             </h2>
         </div>
         <footer class="main-footer">
