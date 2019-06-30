@@ -15,19 +15,16 @@ public class TagController {
 	@Autowired
 	private TagRepository tagRepo;
 	
-	@Resource
-	private PostRepository postRepo;
-	
 	@RequestMapping({"/", ""})
 	public String findAll(Model model) {
 		model.addAttribute("tagsAttribute", tagRepo.findAll());
-		return "tagsTemplate";
+		return "postTagsTemplate";
 	}
 	
 	@RequestMapping({"/{id}","/{id}/"})
 	public String getTag(@PathVariable("id")Long id, Model model) {
 		model.addAttribute("tagAttribute", tagRepo.findById(id).get());
-		return "tagTemplate";
+		return "postTagTemplate";
 	}
 	
 	@PostMapping({"/tags-add", "/tags-add/"})

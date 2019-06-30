@@ -34,7 +34,7 @@ public class PostController {
 	}
 
 	@PostMapping({ "/add-post", "/add-post/" })
-	public String addPost(String title, String content, String category, String tag) {
+	public String addPost(String title, String content, String category, String postTags) {
 
 		Post postToAdd = new Post(title, content);
 		postRepo.save(postToAdd);
@@ -46,9 +46,9 @@ public class PostController {
 		
 		postRepo.findById(postToAdd.getId()).get().addCategory(categoryRepo.findByName(categoryToAdd.getName()));
 
-		tag.replace(" ", "");
-		String[] reviewTags = tag.split(",");
-		for (String tagToAdd : reviewTags) {
+		postTags.replace(" ", "");
+		String[] addTags = postTags.split(",");
+		for (String tagToAdd : addTags) {
 			PostTag addingTag = new PostTag(tagToAdd);
 			if (tagRepo.findByName(addingTag.getName()) == null) {
 				tagRepo.save(addingTag);
@@ -59,7 +59,7 @@ public class PostController {
 		
 		postRepo.save(postRepo.findById(postToAdd.getId()).get());
 
-		return "redirect:/all-reviews";
+		return "redirect:/posts";
 	}
 
 }

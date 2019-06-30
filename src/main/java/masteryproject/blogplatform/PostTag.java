@@ -18,8 +18,8 @@ public class PostTag {
 	@GeneratedValue
 	private Long id;
 
-	@ManyToMany(mappedBy = "reviewTags")
-	private Collection<Post> reviews;
+	@ManyToMany(mappedBy = "postTags")
+	private Collection<Post> post;
 
 	
 	public PostTag() {
@@ -39,8 +39,8 @@ public class PostTag {
 		return id;
 	}
 
-	public Collection<Post> getReviews() {
-		return reviews;
+	public Collection<Post> getPosts() {
+		return post;
 	}
 
 }

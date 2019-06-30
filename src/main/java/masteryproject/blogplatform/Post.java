@@ -19,7 +19,7 @@ public class Post {
 	private long id;
 
 	@ManyToMany
-	private List<PostTag> reviewTags;
+	private List<PostTag> postTags;
 	
 	@ManyToOne
 	private Category category;
@@ -33,8 +33,8 @@ public class Post {
 	@Lob
 	private String content;
 
-	public List<PostTag> getReviewTags() {
-		return reviewTags;
+	public List<PostTag> getPostTags() {
+		return postTags;
 	}
 
 	@SuppressWarnings("unused")
@@ -45,7 +45,7 @@ public class Post {
 	public Post(String title, String content) {
 		this.title = title;
 		this.content = content;
-		this.reviewTags = new ArrayList<>();
+		this.postTags = new ArrayList<>();
 
 	}
 
@@ -62,7 +62,7 @@ public class Post {
 	}
 
 	public void addTag(PostTag postTag) {
-		this.reviewTags.add(postTag);
+		this.postTags.add(postTag);
 	}
 	
 	public void addCategory(Category category) {
