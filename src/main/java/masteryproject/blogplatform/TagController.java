@@ -30,9 +30,9 @@ public class TagController {
 		return "tagTemplate";
 	}
 	
-	@PostMapping({"tags-add", "tags-add/"})
+	@PostMapping({"/tags-add", "/tags-add/"})
 	public String addTag(String name) {
-		Tag tagToAdd = new Tag(name);
+		PostTag tagToAdd = new PostTag(name);
 		if (tagRepo.findByName(tagToAdd.getName()) == null) {
 	            tagRepo.save(tagToAdd);
 	        }	

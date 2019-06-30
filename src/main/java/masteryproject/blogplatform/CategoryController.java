@@ -32,7 +32,7 @@ public class CategoryController {
 		return "categoryTemplate";
 	}
 	
-	@PostMapping({"/cateogires-add","/categoreies-add/"})
+	@PostMapping({"/categories-add","/categories-add/"})
 	public String AddCategory(String name) {
 		Category categoryToAdd = new Category(name);
 		if (categoryRepo.findByName(categoryToAdd.getName()) == null) {

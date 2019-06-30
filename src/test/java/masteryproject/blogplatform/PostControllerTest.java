@@ -40,7 +40,7 @@ public class PostControllerTest {
 	}
 
 	@Test
-	public void shouldBeAbleToGetOneReview() {
+	public void shouldBeAbleToGetOnePost() {
 		Optional<Post> post1Optional = Optional.of(post1);
 		Mockito.when(postRepo.findById(0L)).thenReturn(post1Optional);
 		underTest.getPost(0L, model);
@@ -49,7 +49,7 @@ public class PostControllerTest {
 
 
 	@Test
-	public void shouldHaveReviewsInModel() {
+	public void shouldHavePostsInModel() {
 		Collection<Post> posts = Arrays.asList(post1, post2);
 		Mockito.when(postRepo.findAll()).thenReturn(posts);
 		underTest.findAll(model);

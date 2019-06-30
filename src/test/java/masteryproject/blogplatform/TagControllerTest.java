@@ -25,10 +25,10 @@ public class TagControllerTest {
 	private TagRepository tagRepo;
 	
 	@Mock
-	private Tag tag1;
+	private PostTag tag1;
 	
 	@Mock
-	private Tag tag2;
+	private PostTag tag2;
 	
 	@Mock
 	Model model;
@@ -46,15 +46,15 @@ public class TagControllerTest {
 	
 	@Test
 	public void shouldHaveTagsInModel() {
-		Collection<Tag> tags = Arrays.asList(tag1, tag2);
-		Mockito.when(tagRepo.findAll()).thenReturn(tags);
+		Collection<PostTag> postTags = Arrays.asList(tag1, tag2);
+		Mockito.when(tagRepo.findAll()).thenReturn(postTags);
 		underTest.findAll(model);
-		verify(model).addAttribute("tagsAttribute", tags);
+		verify(model).addAttribute("tagsAttribute", postTags);
 	}
 	
 	@Test
 	public void shouldBeAbleToGet1Tag() {
-		Optional<Tag> tag1Optional = Optional.of(tag1);
+		Optional<PostTag> tag1Optional = Optional.of(tag1);
 		Mockito.when(tagRepo.findById(0L)).thenReturn(tag1Optional);
 		underTest.getTag(0L, model);
 		verify(model).addAttribute("tagAttribute", tag1);
