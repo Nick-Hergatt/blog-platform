@@ -20,6 +20,9 @@ public class PostController {
 
 	@Resource
 	private TagRepository tagRepo;
+	
+	@Resource
+	private AuthorRepository authorRepo;
 
 	@RequestMapping({ "", "/" })
 	public String findAll(Model model) {
@@ -34,7 +37,7 @@ public class PostController {
 	}
 
 	@PostMapping({ "/add-post", "/add-post/" })
-	public String addPost(String title, String content, String category, String postTags) {
+	public String addPost(String title, String content, String category, String postTags, String author) {
 
 		Post postToAdd = new Post(title, content);
 		postRepo.save(postToAdd);
@@ -56,6 +59,11 @@ public class PostController {
 			postRepo.findById(postToAdd.getId()).get().addTag(tagRepo.findByName(addingTag.getName()));
 		}
 		
+		Author authorAdding = new Author(author);
+		if (authorRepo.findByName(authorAdding.getName()) == null) {
+			authorRepo.save(authorAdding);
+		}
+		postRepo.findById(postToAdd.getId()).get().addAuthor(authorAdding);
 		
 		postRepo.save(postRepo.findById(postToAdd.getId()).get());
 

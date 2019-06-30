@@ -55,56 +55,7 @@ public class ApplicationTest {
 		assertThatStatusIsOk("/posts");
 	}
 
-	@Test
-	public void postStatusShouldBeOk() throws Exception {
-		Iterable<Post> post = postRepo.findAll();
-		for(Post review: post) {
-			assertThatStatusIsOk("/posts/" + review.getId());
-		}
-	}
-	
-	@Test
-	public void categoriesStatusShouldBeOk() throws Exception {
-		assertThatStatusIsOk("/categoires");
-	}
-	
-	@Test
-	public void categoryStatusShouldBeOk() throws Exception {
-		Iterable<Category> categories = categoryRepo.findAll();
-		for (Category category: categories) {
-			assertThatStatusIsOk("/categories/" + category.getId());
-		}
-	}
-	
-	@Test
-	public void shouldAddCategoryAndRedirect() throws Exception {
-		ResultActions performMockPostRequest = this.mockMvc.perform(post("/categories/categories-add"));
-		performMockPostRequest.andExpect(status().is3xxRedirection());
-	}
-	
-	@Test
-	public void reviewTagsStatusShouldBeOk() throws Exception {
-		assertThatStatusIsOk("/tags");
-	}
-	
-//	@Test
-//	public void reviewTagStatusShouldBeOk() throws Exception {
-//		Iterable<PostTag> postTags = reviewTagRepo.findAll();
-//		for(PostTag reviewTag : postTags) {
-//			assertThatStatusIsOk("/tags" + postTags.getId());
-//		}
-//	}
-//	
-//	@Test
-//	public void shouldAddReviewTagAndRedirect() throws Exception {
-//		ResultActions performMockPostRequest = this.mockMvc.perform(post("/tags/tags-add/"));
-//		performMockPostRequest.andExpect(status().is3xxRedirection());
-//	}
-//	
-//	@Test
-//	public void authorStatusShouldBeOk() throws Exception {
-//		assertThatStatusIsOK("/tags" + reviewTag.getId());
-//	}
+
 	
 	
  }
