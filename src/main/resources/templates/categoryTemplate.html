@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Fallr Blog</title>
-    <link rel="stylesheet" type="text/css" href="/src/main/resources/static/blog.css" />
+
+    <link rel="stylesheet" href="/static/blog.css" />
+
 </head>
 
 <body>
@@ -24,7 +26,7 @@
         </header>
         <div class="container">
             <ul th:each="post: ${categoryAttribute.posts}">List of posts
-                <span th:text="${categoryAttribute.name}">Category</span> 
+                <span th:text="${categoryAttribute.name}">Category</span>
                 Posts
                 <li><a th:text="${post.title}" th:href="|/posts/${post.id}|">Post</a></li>
             </ul>

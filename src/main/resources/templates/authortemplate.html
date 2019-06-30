@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Fallr Blog</title>
-    <link rel="stylesheet" type="text/css" href="/src/main/resources/static/blog.css" />
+    <link rel="stylesheet" href="/static/blog.css" />
 </head>
 
 <body>
@@ -23,7 +23,7 @@
             </nav>
         </header>
         <div class="container">
-            <ul th:each="post: ${authorAttribute.posts}">List of Posts 
+            <ul th:each="post: ${authorAttribute.posts}">List of Posts
                 <span th:text="${authorAttribute.name}">Author</span>
                 Posts
                 <li><a th:text="${post.title}" th:href="|/posts/${post.id}|">Post</a></li>
