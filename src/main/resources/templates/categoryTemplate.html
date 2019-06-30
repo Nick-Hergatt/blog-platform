@@ -15,19 +15,20 @@
             <h1 class="main-header__title">Fallr Category</h1>
             <nav class="nav nav-margin__right">
                 <ul class="nav-list">
-                    <li class="nav-list__item"><a href="/all-posts/">Posts</a></li>
-                    <li class="nav-list__item"><a href="/all-categories/">Categories</a></li>
-                    <li class="nav-list__item"><a href="/all-postTags/">Tags</a></li>
-                    <li class="nav-list__item"><a href="/all-authors/">Authors</a></li>
+                    <li class="nav-list__item"><a href="/posts/">Posts</a></li>
+                    <li class="nav-list__item"><a href="/categories/">Categories</a></li>
+                    <li class="nav-list__item"><a href="/tags/">Tags</a></li>
+                    <li class="nav-list__item"><a href="/authors/">Authors</a></li>
                 </ul>
             </nav>
         </header>
         <div class="container">
-            <ul th:each="post: ${categoryAttribute.posts}">List of <span
-                    th:text="${categoryAttribute.name}">Category</span> Posts
-                <li><a th:text="${post.title}" th:href="|/all-posts/${post.id}|">Post</a></li>
+            <ul th:each="post: ${categoryAttribute.posts}">List of posts
+                <span th:text="${categoryAttribute.name}">Category</span> 
+                Posts
+                <li><a th:text="${post.title}" th:href="|/posts/${post.id}|">Post</a></li>
             </ul>
-            <a href="/all-categories/">Back to Categories</a>
+            <a href="/categories/">Back to Categories</a>
         </div>
         <footer class="main-footer">
             <small class="main-footer__copy">&copy;2019</small>

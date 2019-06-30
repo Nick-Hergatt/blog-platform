@@ -15,19 +15,20 @@
             <h1 class="main-header__title">Fallr Author</h1>
             <nav class="nav nav-margin__right">
                 <ul class="nav-list">
-                    <li class="nav-list__item"><a href="/all-posts/">Posts</a></li>
-                    <li class="nav-list__item"><a href="/all-categories/">Categories</a></li>
-                    <li class="nav-list__item"><a href="/all-postTags/">Tags</a></li>
-                    <li class="nav-list__item"><a href="/all-authors/">Authors</a></li>
+                    <li class="nav-list__item"><a href="/posts/">Posts</a></li>
+                    <li class="nav-list__item"><a href="/categories/">Categories</a></li>
+                    <li class="nav-list__item"><a href="/tags/">Tags</a></li>
+                    <li class="nav-list__item"><a href="/authors/">Authors</a></li>
                 </ul>
             </nav>
         </header>
         <div class="container">
-            <ul th:each="post: ${authorAttribute.posts}">List of <span th:text="${authorAttribute.name}">Author</span>
+            <ul th:each="post: ${authorAttribute.posts}">List of Posts 
+                <span th:text="${authorAttribute.name}">Author</span>
                 Posts
-                <li><a th:text="${post.title}" th:href="|/all-posts/${post.id}|">Post</a></li>
+                <li><a th:text="${post.title}" th:href="|/posts/${post.id}|">Post</a></li>
             </ul>
-            <a href="/all-authors/">Back to Authors</a>
+            <a href="/authors/">Back to Authors</a>
         </div>
         <footer class="main-footer">
             <small class="main-footer__copy">&copy;2019</small>
