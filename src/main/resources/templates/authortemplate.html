@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Fallr Blog</title>
+    <link rel="stylesheet" href="" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="main-header">
+            <h1 class="main-header__title">Fallr Author</h1>
+            <nav class="nav nav-margin__right">
+                <ul class="nav-list">
+                    <li class="nav-list__item"><a href="/all-posts/">Posts</a></li>
+                    <li class="nav-list__item"><a href="/all-categories/">Categories</a></li>
+                    <li class="nav-list__item"><a href="/all-postTags/">Tags</a></li>
+                    <li class="nav-list__item"><a href="/all-authors/">Authors</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="container">
+            <ul th:each="post: ${authorAttribute.posts}">List of <span th:text="${authorAttribute.name}">Author</span>
+                Posts
+                <li><a th:text="${post.title}" th:href="|/all-posts/${post.id}|">Post</a></li>
+            </ul>
+            <a href="/all-authors/">Back to Authors</a>
+        </div>
+        <footer class="main-footer">
+            <small class="main-footer__copy">&copy;2019</small>
+        </footer>
+    </div>
+</body>
+
+</html>

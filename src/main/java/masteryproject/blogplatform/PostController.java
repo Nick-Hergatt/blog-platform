@@ -24,13 +24,13 @@ public class PostController {
 	@RequestMapping({ "", "/" })
 	public String findAll(Model model) {
 		model.addAttribute("postsAttribute", postRepo.findAll());
-		return "reviewsTemplate";
+		return "postsTemplate";
 	}
 
 	@RequestMapping({ "/{id}", "/{id}/" })
 	public String getPost(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("postAttribute", postRepo.findById(id).get());
-		return "reviewTemplate";
+		return "postTemplate";
 	}
 
 	@PostMapping({ "/add-post", "/add-post/" })
