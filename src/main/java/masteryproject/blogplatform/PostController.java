@@ -37,7 +37,7 @@ public class PostController {
 	}
 
 	@PostMapping({ "/add-post", "/add-post/" })
-	public String addPost(String title, String content, String category, String author) {
+	public String addPost(String title, String content, String category, String postTags, String author) {
 
 		Post postToAdd = new Post(title, content);
 		postRepo.save(postToAdd);
@@ -56,7 +56,7 @@ public class PostController {
 //			if (tagRepo.findByName(addingTag.getName()) == null) {
 //				tagRepo.save(addingTag);
 //			}
-//			postRepo.findById(postToAdd.getId()).get().addTag(tagRepo.findByName(addingTag.getName()));
+//			postRepo.findById(postToAdd.getId()).get().addTag(addingTag);
 //		}
 		
 		Author authorAdding = new Author(author);

@@ -7,8 +7,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
-
-
 @Entity
 public class PostTag {
 
@@ -21,22 +19,21 @@ public class PostTag {
 	@ManyToMany(mappedBy = "postTags")
 	private Collection<Post> post;
 
-	
 	public PostTag() {
 
 	}
 
 	public PostTag(String name) {
 		this.name = name;
-		
+
+	}
+	
+	public Long getId() {
+		return id;
 	}
 
 	public String getName() {
 		return name;
-	}
-
-	public Long getId() {
-		return id;
 	}
 
 	public Collection<Post> getPosts() {
