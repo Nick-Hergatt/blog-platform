@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,7 +32,7 @@
                 <button class="post-form__button" type="submit">Submit</button>
             </form>
             <h2 th:each="postTag: ${tagsAttribute}">
-                <a th:text="${postTag.name}" th:href="|/all-postTags/${postTag.id}|">Category name</a>
+                <a th:text="${postTag.name}" th:href="|./${postTag.id}|">Category name</a>
             </h2>
         </div>
         <footer class="main-footer">

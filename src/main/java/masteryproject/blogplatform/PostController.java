@@ -47,7 +47,7 @@ public class PostController {
 			categoryRepo.save(categoryToAdd);
 		}
 		
-		postRepo.findById(postToAdd.getId()).get().addCategory(categoryToAdd);
+		postRepo.findById(postToAdd.getId()).get().addCategory(categoryRepo.findByName(categoryToAdd.getName()));
 
 //		postTags.replace(" ", "");
 //		String[] addTags = postTags.split(",");
@@ -63,7 +63,7 @@ public class PostController {
 		if (authorRepo.findByName(authorAdding.getName()) == null) {
 			authorRepo.save(authorAdding);
 		}
-		postRepo.findById(postToAdd.getId()).get().addAuthor(authorAdding);
+		postRepo.findById(postToAdd.getId()).get().addAuthor(authorRepo.findByName(authorAdding.getName()));
 		
 		postRepo.save(postRepo.findById(postToAdd.getId()).get());
 
