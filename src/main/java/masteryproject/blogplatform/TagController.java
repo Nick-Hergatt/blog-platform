@@ -1,6 +1,4 @@
 package masteryproject.blogplatform;
-import javax.annotation.Resource;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +12,7 @@ public class TagController {
 	
 	@Autowired
 	private TagRepository tagRepo;
+	
 	
 	@RequestMapping({"/", ""})
 	public String findAll(Model model) {
@@ -35,4 +34,4 @@ public class TagController {
 	        }	
 		return "redirect:/tags";
 	}
-}
+	}

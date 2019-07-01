@@ -59,17 +59,17 @@ public class Initializer implements CommandLineRunner {
 		authorRepo.save(author3);
 		
 		post1.addCategory(category2);
-		post1.addTag(tag3);
+		post1.addPostTag(tag3);
 		post1.addAuthor(author1);
 		postRepo.save(post1);
 		
 		post2.addCategory(category1);
-		post2.addTag(tag2);
+		post2.addPostTag(tag2);
 		post2.addAuthor(author2);
 		postRepo.save(post2);
 		
 		post3.addCategory(category3);
-		post3.addTag(tag1);
+		post3.addPostTag(tag1);
 		post3.addAuthor(author3);
 		postRepo.save(post3);
 		

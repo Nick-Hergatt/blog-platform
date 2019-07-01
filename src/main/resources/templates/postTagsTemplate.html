@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Fallr Blog</title>
 
-    <link rel="stylesheet" href="/static/blog.css" />
+    <link rel="stylesheet" href="/blog.css" />
 
 </head>
 
@@ -33,7 +33,7 @@
                 <button class="post-form__button" type="submit">Submit</button>
             </form>
             <h2 th:each="postTag: ${tagsAttribute}">
-                <a th:text="${postTag.name}" th:href="|/all-postTags/${postTag.id}|">Category name</a>
+                <a th:text="${postTag.name}" th:href="|/postTags/${postTag.id}|">Category name</a>
             </h2>
         </div>
         <footer class="main-footer">

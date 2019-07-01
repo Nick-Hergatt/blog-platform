@@ -1,8 +1,6 @@
 package masteryproject.blogplatform;
 
 import java.util.Collection;
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -11,11 +9,11 @@ import javax.persistence.OneToMany;
 @Entity
 public class Category {
 
+	private String name;
+
+
 	@OneToMany(mappedBy = "category")
 	private Collection<Post> posts;
-
-
-	private String name;
 
 	@Id
 	@GeneratedValue
@@ -30,6 +28,11 @@ public class Category {
 
 	}
 
+	public Collection<Post> getPosts() {
+		return posts;
+		
+	}
+	
 	protected Category() {
 
 	}
@@ -37,12 +40,6 @@ public class Category {
 	public Category(String name) {
 		this.name = name;
 	}
-
-	public Collection<Post> getPosts() {
-		return posts;
-
-	}
-
 
 	@Override
 	public int hashCode() {
@@ -53,7 +50,7 @@ public class Category {
 		result = prime * result + ((posts == null) ? 0 : posts.hashCode());
 		return result;
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -80,4 +77,5 @@ public class Category {
 			return false;
 		return true;
 	}
+
 }

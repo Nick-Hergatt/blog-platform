@@ -19,7 +19,7 @@ public class PostTag {
 	private Long id;
 
 	@ManyToMany(mappedBy = "postTags")
-	private Collection<Post> post;
+	private Collection<Post> posts;
 
 	
 	public PostTag() {
@@ -40,7 +40,7 @@ public class PostTag {
 	}
 
 	public Collection<Post> getPosts() {
-		return post;
+		return posts;
 	}
 
 	@Override

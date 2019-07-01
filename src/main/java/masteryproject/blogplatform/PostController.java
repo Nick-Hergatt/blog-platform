@@ -37,7 +37,7 @@ public class PostController {
 	}
 
 	@PostMapping({ "/add-post", "/add-post/" })
-	public String addPost(String title, String content, String category, String author) {
+	public String addPost(String title, String content, String category, String author, String postTag) {
 
 		Post postToAdd = new Post(title, content);
 		postRepo.save(postToAdd);
@@ -47,17 +47,18 @@ public class PostController {
 			categoryRepo.save(categoryToAdd);
 		}
 		
-		postRepo.findById(postToAdd.getId()).get().addCategory(categoryToAdd);
+		postRepo.findById(postToAdd.getId()).get().addCategory(categoryRepo.findByName(categoryToAdd.getName()));
 
-//		postTags.replace(" ", "");
-//		String[] addTags = postTags.split(",");
-//		for (String tagToAdd : addTags) {
-//			PostTag addingTag = new PostTag(tagToAdd);
-//			if (tagRepo.findByName(addingTag.getName()) == null) {
-//				tagRepo.save(addingTag);
-//			}
-//			postRepo.findById(postToAdd.getId()).get().addTag(tagRepo.findByName(addingTag.getName()));
-//		}
+		
+		postTag.replace(" ", "");
+		String[] postTags = postTag.split(",");
+		for (String tagToAdd : postTags) {
+			PostTag postTagToAdd = new PostTag(tagToAdd);
+			if (tagRepo.findByName(postTagToAdd.getName()) == null) {
+				tagRepo.save(postTagToAdd);
+			}
+			postRepo.findById(postToAdd.getId()).get().addPostTag(tagRepo.findByName(postTagToAdd.getName()));
+		}
 		
 		Author authorAdding = new Author(author);
 		if (authorRepo.findByName(authorAdding.getName()) == null) {

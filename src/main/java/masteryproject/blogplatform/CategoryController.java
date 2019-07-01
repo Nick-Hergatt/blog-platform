@@ -23,12 +23,12 @@ public class CategoryController {
 	}
 
 	@RequestMapping({ "/{id}", "/{id}/" })
-	public String getCategory(@PathVariable Long id, Model model) {
+	public String getCategory(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("categoryAttribute", categoryRepo.findById(id));
 		return "categoryTemplate";
 	}
 
-	@PostMapping({ "/categories-add", "/categories-add/" })
+	@PostMapping({ "/add-categories", "/add-categories/" })
 	public String AddCategory(String name) {
 		Category categoryToAdd = new Category(name);
 		if (categoryRepo.findByName(categoryToAdd.getName()) == null) {

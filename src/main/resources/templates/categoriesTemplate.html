@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Fallr Blog</title>
-    <link rel="stylesheet" type="text/css" href="/src/main/resources/static/blog.css" />
+    <link rel="stylesheet" href="/blog.css" />
 </head>
 
 <body>
@@ -23,7 +23,7 @@
             </nav>
         </header>
         <div class="container">
-            <form class="post-form" action="/categories/categories-add" method="POST">
+            <form class="post-form" action="/categories/add-category" method="POST">
                 <ul class="post-form__list">
                     <label class="post-form__field">Category:
                         <input type="text" name="name" placeholder="Enter Category here" required /></label>

@@ -19,14 +19,15 @@ public class Post {
 	@GeneratedValue
 	private long id;
 
-	@ManyToMany
-	private List<PostTag> postTags;
 	
 	@ManyToOne
 	private Category category;
 	
 	@ManyToOne
 	private Author author;
+	
+	@ManyToMany
+	private List<PostTag> postTags;
 	
 	LocalTime localDateTime = LocalTime.now();
 	private String title;
@@ -38,8 +39,8 @@ public class Post {
 		return postTags;
 	}
 
-	@SuppressWarnings("unused")
-	private Post() {
+	
+	protected Post() {
 
 	}
 
@@ -62,7 +63,7 @@ public class Post {
 		return content;
 	}
 
-	public void addTag(PostTag postTag) {
+	public void addPostTag(PostTag postTag) {
 		this.postTags.add(postTag);
 	}
 	
