@@ -1,43 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Fallr Blog</title>
-    <link rel="stylesheet" type="text/css" href="/src/main/resources/static/blog.css" />
-</head>
+    <link rel="stylesheet" type="text/css" href="/blog.css" />
+  </head>
 
-<body>
+  <body>
     <div class="wrapper">
-        <header class="main-header">
-            <h1 class="main-header__title">Fallr Categories</h1>
-            <nav class="nav nav-margin__right">
-                <ul class="nav-list">
-                    <li class="nav-list__item"><a href="/posts/">Posts</a></li>
-                    <li class="nav-list__item"><a href="/categories/">Categories</a></li>
-                    <li class="nav-list__item"><a href="/tags/">Tags</a></li>
-                    <li class="nav-list__item"><a href="/authors/">Authors</a></li>
-                </ul>
-            </nav>
-        </header>
-        <div class="container">
-            <form class="post-form" action="/categories/categories-add" method="POST">
-                <ul class="post-form__list">
-                    <label class="post-form__field">Category:
-                        <input type="text" name="name" placeholder="Enter Category here" required /></label>
-                </ul>
-                <button class="post-form__button" type="submit">Submit</button>
-            </form>
-            <h2 th:each="category: ${categoriesAttribute}">
-                <a th:text="${category.name}" th:href="|/categories/${category.id}|">Author name</a>
-            </h2>
-        </div>
-        <footer class="main-footer">
-            <small class="main-footer__copy">&copy;2019</small>
-        </footer>
+      <header class="main-header">
+        <h1 class="main-header__title">Fallr Categories</h1>
+        <nav class="nav nav-margin__right">
+          <ul class="nav-list">
+            <li class="nav-list__item"><a href="/posts/">Posts</a></li>
+            <li class="nav-list__item">
+              <a href="/categories/">Categories</a>
+            </li>
+            <li class="nav-list__item"><a href="/tags/">Tags</a></li>
+            <li class="nav-list__item"><a href="/authors/">Authors</a></li>
+          </ul>
+        </nav>
+      </header>
+      <div class="container">
+        <form
+          class="post-form"
+          action="/categories/categories-add"
+          method="POST"
+        >
+          <ul class="post-form__list">
+            <label class="post-form__field"
+              >Category:
+              <input
+                type="text"
+                name="name"
+                placeholder="Enter Category here"
+                required
+            /></label>
+          </ul>
+          <button class="post-form__button" type="submit">Submit</button>
+        </form>
+        <h2 th:each="category: ${categoriesAttribute}">
+          <a th:text="${category.name}" th:href="|/categories/${category.id}|"
+            >Author name</a
+          >
+        </h2>
+      </div>
+      <footer class="main-footer">
+        <small class="main-footer__copy">&copy;2019</small>
+      </footer>
     </div>
-</body>
-
+  </body>
 </html>
